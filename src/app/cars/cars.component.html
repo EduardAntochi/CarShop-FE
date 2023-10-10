@@ -1,0 +1,14 @@
+<div class="content">
+    <h2>Cars in sell</h2>
+    <div class="card-container" *ngIf="cars">
+        <div class="card card-medium" *ngFor="let car of cars" routerLink="/car/{{car.id}}">
+            <h3>{{car.make}}</h3>
+            <h4>{{car.model}}</h4>
+            <h4>{{car.transmission}}</h4>
+            <h4>{{car.engine}}</h4>
+            <h4>{{car.fuelType}}</h4>
+            <h4>{{car.edition}}</h4>
+            <p><span>€ </span>{{totalPrice(car)}}</p>
+        </div>
+    </div>
+</div>

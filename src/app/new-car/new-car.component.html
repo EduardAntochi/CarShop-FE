@@ -1,0 +1,20 @@
+<div class="content">
+    <h2> New car </h2>
+    <div>
+        <h4><label> Make: </label><input [(ngModel)]="car.make" placeholder="make"/></h4>
+        <h4><label> Model: </label><input [(ngModel)]="car.model" placeholder="model"/></h4>
+        <h4><label> Transmission: </label><input [(ngModel)]="car.transmission" placeholder="transmission"/></h4>
+        <h4><label> Engine: </label><input [(ngModel)]="car.engine" placeholder="engine"/></h4>
+        <h4><label> FuelType: </label><input [(ngModel)]="car.fuelType" placeholder="fuelType"/></h4>
+        <h4><label> Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h4>
+        <h4><label> Options: </label></h4>
+        <div *ngFor="let option of car.selectedOptions">
+            <!-- (onAddNew)="addOption()" [injectedOption]="option" -->
+            <router-outlet (onAddNew)="addOption()" (onRemove)="removeOption(option)"></router-outlet>
+        </div>
+        <div>
+            <button (click)="resetCarDetails()"> Clear </button>
+            <button (click)="save()"> Save </button>
+        </div>
+    </div>
+</div>

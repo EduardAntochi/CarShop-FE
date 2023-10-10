@@ -1,0 +1,13 @@
+<div>
+    <h4>
+        <select (change)="select($any($event.target).value)" [(ngModel)]="injectedOption.selectedOption === undefined ? 0 : injectedOption.selectedOption"> 
+            <option value="0">Select an Option</option>
+            <option *ngFor="let option of options" value={{option.id}}>
+                {{option.name}}
+            </option>
+        </select>
+        <label> Price: € </label><input [(ngModel)]="injectedOption.price" placeholder="price"/>
+        <button *ngIf="!added" (click)="add()">Add</button>
+        <button *ngIf="added" (click)="remove()">Remove</button>
+    </h4>
+</div>

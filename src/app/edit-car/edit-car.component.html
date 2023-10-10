@@ -1,0 +1,20 @@
+<div class="content">
+<h2> Edit car details</h2>
+<div>
+    <h3><label>Model: </label><input [(ngModel)]="car.model" placeholder="model"/></h3>
+    <h3><label>Transmission: </label><input [(ngModel)]="car.transmission" placeholder="transmission"/></h3>
+    <h3><label>Engine: </label><input [(ngModel)]="car.engine" placeholder="engine"/></h3>
+    <h3><label>FuelType: </label><input [(ngModel)]="car.fuelType" placeholder="fuelType"/></h3>
+    <h3><label>Edition: </label><input [(ngModel)]="car.edition" placeholder="edition"/></h3>
+    <h3><label>Price €: </label><input [(ngModel)]="car.price" placeholder="price"/></h3>
+    <div *ngFor="let option of car.selectedOptions">
+        <!--  (onAddNew)="addOption() [injectedOption]=option" -->
+        <app-option (onAddNew)="addOption()" (onRemove)="removeOption(option)"></app-option>
+    </div>
+    <div>
+        <button routerLink="/car/{{car.id}}"> Cancel </button>
+        <button (click)="updateEdits()"> Update </button>
+    </div>
+<div>
+</div>
+

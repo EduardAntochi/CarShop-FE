@@ -1,0 +1,22 @@
+<div class="content">
+    <h1> Car details </h1>
+    <div *ngIf="car">
+        <div *ngIf="!editing">
+            <h3>{{car.make}}</h3>
+            <h3>{{car.model}}</h3>
+            <h3>{{car.transmission}}</h3>
+            <h3>{{car.engine}}</h3>
+            <h3>{{car.fuelType}}</h3>
+            <p>{{car.edition}}</p>
+            <div *ngIf="car.selectedOptions.length > 0">
+                <h4><span>Price € </span>{{car.price}}</h4>
+                <h4>Options:</h4>
+                <p *ngFor="let option of car.selectedOptions"><span>{{getOptionLabel(option)}} €{{option.price}}</span></p>
+            </div>
+            <h3><span>Total Price € </span>{{totalPrice(car)}}</h3>
+            <button routerLink="/cars">Back to Cars</button>
+            <button routerLink="/car-edit/{{car.id}}">Edit</button>
+            <button (click)="delete()">Delete</button>
+        </div>    
+    </div>
+</div>       
